@@ -84,8 +84,8 @@ data:
       params:
         path: ../data
         split: train
-        min_resize_res: 256
-        max_resize_res: 256 
+        min_resize_res: 32
+        max_resize_res: 32 
         crop_res: 0
         flip_prob: 0
     validation:
@@ -93,9 +93,9 @@ data:
       params:
         path: ../data
         split: val
-        min_resize_res: 256
-        max_resize_res: 256
-        crop_res: 256
+        min_resize_res: 32
+        max_resize_res: 32
+        crop_res: 32
 
 lightning:
   callbacks:
