@@ -82,7 +82,7 @@ data:
     train:
       target: edit_dataset.EditDataset
       params:
-        path: ../data
+        path: data
         split: train
         min_resize_res: 32
         max_resize_res: 32 
@@ -91,7 +91,7 @@ data:
     validation:
       target: edit_dataset.EditDataset
       params:
-        path: ../data
+        path: data
         split: val
         min_resize_res: 32
         max_resize_res: 32
