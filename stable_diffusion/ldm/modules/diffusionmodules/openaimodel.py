@@ -733,6 +733,8 @@ class UNetModel(nn.Module):
             hs.append(h)
         h = self.middle_block(h, emb, context)
         for module in self.output_blocks:
+            print("Shape of h: ", h.shape)
+            print("Shape of hs[-1]: ", hs[-1].shape)
             h = th.cat([h, hs.pop()], dim=1)
             h = module(h, emb, context)
         h = h.type(x.dtype)
