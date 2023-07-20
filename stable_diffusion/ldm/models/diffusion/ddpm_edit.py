@@ -310,9 +310,14 @@ class DDPM(pl.LightningModule):
 
     def get_loss(self, pred, target, mean=True):
 
+        
+        if pred.size() != target.size():
+            target = F.interpolate(target, size=pred.shape[2:], mode='nearest')
+
         print("Shape of predictions:", pred.shape)   # print shape of predictions
         print("Shape of targets:", target.shape)     # print shape of targets
-        
+        # target = F.interpolate(target, size=pred.shape[2:])
+
         assert pred.size() == target.size()
         if not mean:
             return (pred - target).pow(2)
