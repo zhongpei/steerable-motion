@@ -55,8 +55,8 @@ class EditDataset(Dataset):
         with open(propt_dir.joinpath("prompt.json")) as fp:
             prompt = json.load(fp)["edit"]
 
-        image_0 = Image.open(propt_dir.joinpath(f"{seed}_0.jpg"))
-        image_1 = Image.open(propt_dir.joinpath(f"{seed}_1.jpg"))
+        image_0 = Image.open(propt_dir.joinpath(f"{seed}_0.png"))
+        image_1 = Image.open(propt_dir.joinpath(f"{seed}_1.png"))
 
         reize_res = torch.randint(self.min_resize_res, self.max_resize_res + 1, ()).item()
         image_0 = image_0.resize((reize_res, reize_res), Image.Resampling.LANCZOS)
@@ -111,7 +111,7 @@ class EditDatasetEval(Dataset):
             input_prompt = prompt["input"]
             output_prompt = prompt["output"]
 
-        image_0 = Image.open(propt_dir.joinpath(f"{seed}_0.jpg"))
+        image_0 = Image.open(propt_dir.joinpath(f"{seed}_0.png"))
 
         reize_res = torch.randint(self.res, self.res + 1, ()).item()
         image_0 = image_0.resize((reize_res, reize_res), Image.Resampling.LANCZOS)
