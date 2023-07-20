@@ -309,18 +309,14 @@ class DDPM(pl.LightningModule):
                 extract_into_tensor(self.sqrt_one_minus_alphas_cumprod, t, x_start.shape) * noise)
 
     def get_loss(self, pred, target, mean=True):
-        if self.loss_type == 'l1':
-            loss = (target - pred).abs()
-            if mean:
-                loss = loss.mean()
-        elif self.loss_type == 'l2':
-            if mean:
-                loss = torch.nn.functional.mse_loss(target, pred)
-            else:
-                loss = torch.nn.functional.mse_loss(target, pred, reduction='none')
-        else:
-            raise NotImplementedError("unknown loss type '{loss_type}'")
+        assert pred.size() == target.size()
+        if not mean:
+            return (pred - target).pow(2)
 
+        print("Shape of predictions:", pred.shape)   # print shape of predictions
+        print("Shape of targets:", target.shape)     # print shape of targets
+
+        loss = torch.nn.functional.mse_loss(target, pred, reduction='none')
         return loss
 
     def p_losses(self, x_start, t, noise=None):
