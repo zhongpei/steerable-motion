@@ -56,7 +56,7 @@ model:
         ddconfig:
           double_z: true
           z_channels: 4
-          resolution: 256
+          resolution: 64
           in_channels: 3
           out_ch: 3
           ch: 128
@@ -84,18 +84,18 @@ data:
       params:
         path: data
         split: train
-        min_resize_res: 256
-        max_resize_res: 256
-        crop_res: 256
+        min_resize_res: 64
+        max_resize_res: 64
+        crop_res: 64
         flip_prob: 0.5
     validation:
       target: edit_dataset.EditDataset
       params:
         path: data
         split: val
-        min_resize_res: 256
-        max_resize_res: 256
-        crop_res: 256
+        min_resize_res: 64
+        max_resize_res: 64
+        crop_res: 64
 
 lightning:
   callbacks:
@@ -107,7 +107,7 @@ lightning:
         increase_log_steps: False
 
   trainer:
-    max_epochs: 500
+    max_epochs: 400
     benchmark: True
     accumulate_grad_batches: 4
     check_val_every_n_epoch: 4
