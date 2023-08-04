@@ -16,7 +16,7 @@ class Predictor(BasePredictor):
 
         self.config = "configs/generate.yaml"
         vae_ckpt = None
-        ckpt = "checkpoints/sm_0_1.ckpt"
+        ckpt = "checkpoints/sm_0_1_3.ckpt"
 
         config = OmegaConf.load(self.config)
         self.model = load_model_from_config(config, ckpt, vae_ckpt)

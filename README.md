@@ -4,7 +4,7 @@ Steerable Motion aims to fine-tune Stable Diffusion on Motion data in order to g
 
 We believe that Steerable Motion will be a powerful tool for artists who want to create works that match their imagination exactly. The key frames they create will be interpolated into a smooth motion - by both linear and creative interpolation models.
 
-The early versions are trained on stills from a single property in order to validate the approach.
+The early versions are built InstructPix2Pix and trained on stills from a single property in order to validate the approach.
 
 You can see some samples from it here:
 
