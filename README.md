@@ -8,7 +8,7 @@ The early versions are trained on stills from a single property in order to vali
 
 You can see some samples from it here:
 
-<img src='https://banodoco.s3.amazonaws.com/examples.png'/>
+<img src='https://banodoco.s3.amazonaws.com/examples-small.png'/>
 
 And a **very** early example of what this looks like animated here:
 
